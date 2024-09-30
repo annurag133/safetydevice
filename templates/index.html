@@ -1,0 +1,116 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Prediction</title>
+</head>
+<body>
+    <h1>Enter Temperature Data</h1>
+    <form action="/predict" method="post">
+        <label for="station">Station:</label>
+        <input type="text" id="station" name="station" required><br><br>
+
+        <label for="Present_Tmax">Present Tmax:</label>
+        <input type="number" step="any" id="Present_Tmax" name="Present_Tmax" required><br><br>
+
+        <label for="Present_Tmin">Present Tmin:</label>
+        <input type="number" step="any" id="Present_Tmin" name="Present_Tmin" required><br><br>
+
+        <label for="LDAPS_RHmin">LDAPS RHmin:</label>
+        <input type="number" step="any" id="LDAPS_RHmin" name="LDAPS_RHmin" required><br><br>
+
+        <label for="LDAPS_RHmax">LDAPS RHmax:</label>
+        <input type="number" step="any" id="LDAPS_RHmax" name="LDAPS_RHmax" required><br><br>
+
+        <label for="LDAPS_Tmax_lapse">LDAPS Tmax Lapse:</label>
+        <input type="number" step="any" id="LDAPS_Tmax_lapse" name="LDAPS_Tmax_lapse" required><br><br>
+
+        <label for="LDAPS_Tmin_lapse">LDAPS Tmin Lapse:</label>
+        <input type="number" step="any" id="LDAPS_Tmin_lapse" name="LDAPS_Tmin_lapse" required><br><br>
+
+        <label for="LDAPS_WS">LDAPS WS:</label>
+        <input type="number" step="any" id="LDAPS_WS" name="LDAPS_WS" required><br><br>
+
+        <label for="LDAPS_LH">LDAPS LH:</label>
+        <input type="number" step="any" id="LDAPS_LH" name="LDAPS_LH" required><br><br>
+
+        <label for="LDAPS_CC1">LDAPS CC1:</label>
+        <input type="number" step="any" id="LDAPS_CC1" name="LDAPS_CC1" required><br><br>
+
+        <label for="LDAPS_CC2">LDAPS CC2:</label>
+        <input type="number" step="any" id="LDAPS_CC2" name="LDAPS_CC2" required><br><br>
+
+        <label for="LDAPS_CC3">LDAPS CC3:</label>
+        <input type="number" step="any" id="LDAPS_CC3" name="LDAPS_CC3" required><br><br>
+
+        <label for="LDAPS_CC4">LDAPS CC4:</label>
+        <input type="number" step="any" id="LDAPS_CC4" name="LDAPS_CC4" required><br><br>
+
+        <label for="LDAPS_PPT1">LDAPS PPT1:</label>
+        <input type="number" step="any" id="LDAPS_PPT1" name="LDAPS_PPT1" required><br><br>
+
+        <label for="LDAPS_PPT2">LDAPS PPT2:</label>
+        <input type="number" step="any" id="LDAPS_PPT2" name="LDAPS_PPT2" required><br><br>
+
+        <label for="LDAPS_PPT3">LDAPS PPT3:</label>
+        <input type="number" step="any" id="LDAPS_PPT3" name="LDAPS_PPT3" required><br><br>
+
+        <label for="LDAPS_PPT4">LDAPS PPT4:</label>
+        <input type="number" step="any" id="LDAPS_PPT4" name="LDAPS_PPT4" required><br><br>
+
+        <label for="lat">Latitude:</label>
+        <input type="number" step="any" id="lat" name="lat" required><br><br>
+
+        <label for="lon">Longitude:</label>
+        <input type="number" step="any" id="lon" name="lon" required><br><br>
+
+        <label for="DEM">DEM:</label>
+        <input type="number" step="any" id="DEM" name="DEM" required><br><br>
+
+        <label for="Slope">Slope:</label>
+        <input type="number" step="any" id="Slope" name="Slope" required><br><br>
+
+        <label for="Solar_radiation">Solar Radiation:</label>
+        <input type="number" step="any" id="Solar_radiation" name="Solar_radiation" required><br><br>
+
+        <label for="Hour">Hour:</label>
+        <input type="number" step="any" id="Hour" name="Hour" required><br><br>
+
+        <label for="Day">Day:</label>
+        <input type="number" step="any" id="Day" name="Day" required><br><br>
+
+        <label for="Month">Month:</label>
+        <input type="number" step="any" id="Month" name="Month" required><br><br>
+
+        <label for="Year">Year:</label>
+        <input type="number" step="any" id="Year" name="Year" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Prediction</title>
+</head>
+<body>
+    <h1>Temperature Prediction</h1>
+    <form action="/predict" method="POST">
+        <h2>Enter Present Maximum and Minimum Temperatures for the Next 24 Hours</h2>
+        {% for i in range(2) %}
+            <h3>Hour {{ i }}</h3>
+            <label for="Present_Tmax_{{ i }}">Present Maximum Temperature (°C):</label>
+            <input type="number" step="any" id="Present_Tmax_{{ i }}" name="Present_Tmax_{{ i }}" required><br><br>
+            
+            <label for="Present_Tmin_{{ i }}">Present Minimum Temperature (°C):</label>
+            <input type="number" step="any" id="Present_Tmin_{{ i }}" name="Present_Tmin_{{ i }}" required><br><br>
+        {% endfor %}
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>

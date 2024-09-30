@@ -1,0 +1,45 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <p>{{ prediction_max_text }}</p>
+    <p>{{ prediction_min_text }}</p>
+    <a href="/">Go Back</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Predictions</title>
+</head>
+<body>
+    <h1>Temperature Predictions for the Next 24 Hours</h1>
+
+    <h2>Hourly Maximum Temperatures</h2>
+    <ul>
+        {% for temp in predictions_max %}
+            <li>Hour {{ loop.index0 }}: {{ '%.2f' | format(temp) }}°C</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Hourly Minimum Temperatures</h2>
+    <ul>
+        {% for temp in predictions_min %}
+            <li>Hour {{ loop.index0 }}: {{ '%.2f' | format(temp) }}°C</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Average Temperatures</h2>
+    <p>Average Max Temperature for Next Day: {{ avg_max_temp | round(2) }}°C</p>
+    <p>Average Min Temperature for Next Day: {{ avg_min_temp | round(2) }}°C</p>
+
+    <a href="/">Go Back</a>
+</body>
+</html>
