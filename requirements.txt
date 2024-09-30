@@ -1,2 +1,6 @@
 Flask==2.2.3
 numpy==1.24.3
+pandas==1.5.3
+gunicorn==21.1.0  # Add this line
+pip install -r requirements.txt
+ß
